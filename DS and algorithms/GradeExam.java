@@ -1,4 +1,3 @@
-//this could make good practice for jUnit testing
 public class GradeExam {
 
 	public static void main(String[] args) {
