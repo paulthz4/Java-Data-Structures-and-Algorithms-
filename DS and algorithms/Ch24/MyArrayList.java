@@ -16,21 +16,20 @@ public class MyArrayList<E> implements MyList<E> {
 		}
 	}
 
-	@Override
 	public void add(int index, E e) {
-		if (index < 0 || index >= size)
+		if (index < 0 || index > size)
 			throw new IndexOutOfBoundsException("index: " + index + ", Size: " + size);
 
 		ensureCapacity();
 
-		for (int i = index; i < size; i++) {
+		for (int i = size-1; i >= index; i++) {
 			data[i + 1] = data[i];
 		}
 		data[index] = e;
-		size++;
+		size+=1;
 	}
 
-	public void ensureCapacity() {
+	private void ensureCapacity() {
 		if (size >= data.length) {
 			E[] newData = (E[]) (new Object[size * 2 + 1]);
 			System.arraycopy(data, 0, newData, 0, size);
@@ -54,9 +53,8 @@ public class MyArrayList<E> implements MyList<E> {
 	}
 
 	private void checkIndex(int index) {
-		if (index >= data.length || index < 0)
+		if (index >= size || index < 0)
 			throw new IndexOutOfBoundsException("index: " + index + ", Size: " + size);
-
 	}
 
 	@Override
@@ -65,44 +63,43 @@ public class MyArrayList<E> implements MyList<E> {
 	}
 
 	public void trimToSize() {
-	    if (size != data.length) { 
-	      E[] newData = (E[])(new Object[size]);
-	      System.arraycopy(data, 0, newData, 0, size);
-	      data = newData;
-	    } // If size == capacity, no need to trim
-	  }
+		if (size != data.length) {
+			E[] newData = (E[]) (new Object[size]);
+			System.arraycopy(data, 0, newData, 0, size);
+			data = newData;
+		} // If size == capacity, no need to trim
+	}
 
-	  @Override /** Override iterator() defined in Iterable */
-	  public java.util.Iterator<E> iterator() {
-	    return new ArrayListIterator();
-	  }
-	 
-	  private class ArrayListIterator 
-	      implements java.util.Iterator<E> {
-	    private int current = 0; // Current index 
+	@Override /** Override iterator() defined in Iterable */
+	public java.util.Iterator<E> iterator() {
+		return new ArrayListIterator();
+	}
 
-	    @Override
-	    public boolean hasNext() {
-	      return current < size;
-	    }
+	private class ArrayListIterator implements java.util.Iterator<E> {
+		private int current = 0; // Current index
 
-	    @Override
-	    public E next() {
-	      return data[current++];
-	    }
+		@Override
+		public boolean hasNext() {
+			return current < size;
+		}
 
-	    @Override // Remove the element returned by the last next()
-	    public void remove() {
-	    	if (current == 0) // next() has not been called yet
-	        throw new IllegalStateException(); 
-	      MyArrayList.this.remove(--current);
-	    }
-	  }
+		@Override
+		public E next() {
+			return data[current++];
+		}
+
+		@Override // Remove the element returned by the last next()
+		public void remove() {
+			if (current == 0) // next() has not been called yet
+				throw new IllegalStateException();
+			MyArrayList.this.remove(--current);
+		}
+	}
 
 	@Override
 	public void clear() {
-		data = (E[])new Object[INITIAL_CAPACITY];
-	    size = 0;
+		data = (E[]) new Object[INITIAL_CAPACITY];
+		size = 0;
 	}
 
 	@Override
@@ -127,10 +124,10 @@ public class MyArrayList<E> implements MyList<E> {
 	public E remove(int index) {
 		checkIndex(index);
 		E e = data[index];
-		for (int i = index; i < size; i++) {
-			data[i] = data[i+1];
+		for (int i = index; i < size-1; i++) {
+			data[i] = data[i + 1];
 		}
-		data[size-1] = null;
+		data[size - 1] = null;
 		size--;
 		return e;
 	}
@@ -142,15 +139,21 @@ public class MyArrayList<E> implements MyList<E> {
 		data[index] = e;
 		return old;
 	}
-	
-	@Override 
+
+	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder("[");
-		for(int i=0; i<size;i++) {
+		for (int i = 0; i < size; i++) {
 			result.append(data[i]);
-			if(i <size-1) 
+			if (i < size - 1)
 				result.append(", ");
 		}
-		return result.toString()+"]";
+		return result.toString() + "]";
+	}
+
+	public static void main(String args[]) {
+		MyArrayList<String> a = new MyArrayList<>();
+		a.add("ehool");
+		System.out.println(a.get(0));
 	}
 }
