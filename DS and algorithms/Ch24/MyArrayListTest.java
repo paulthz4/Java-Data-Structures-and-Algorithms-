@@ -40,7 +40,15 @@ class MyArrayListTest {
 	}
 	
 	@Test
-	void test() {
+	void testToString() {
+		for(int i=0; i<40; i++) {
+			myList.add(""+i);
+			list.add(""+i);
+		}
+		myList.set(10, "index 10");
+		list.set(10, "index 10");
+		System.out.println(myList.toString()+"\n"+ list.toString());
+		assertEquals(myList.toString(), list.toString());
 		
 	}
 }
