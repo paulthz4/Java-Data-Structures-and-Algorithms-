@@ -1,7 +1,5 @@
 package Ch24;
 
-import java.util.Iterator;
-
 public class MyArrayList<E> implements MyList<E> {
 	static final int INITIAL_CAPACITY = 16;
 	private E[] data = (E[]) new Object[INITIAL_CAPACITY];
@@ -11,11 +9,12 @@ public class MyArrayList<E> implements MyList<E> {
 	}
 
 	public MyArrayList(E[] objects) {
-		for (int i = 0; i < objects.length; i++) {
-			add(objects[i]);
+		for (E object : objects) {
+			add(object);
 		}
 	}
 
+	@Override
 	public void add(int index, E e) {
 		if (index < 0 || index > size)
 			throw new IndexOutOfBoundsException("index: " + index + ", Size: " + size);
@@ -39,8 +38,8 @@ public class MyArrayList<E> implements MyList<E> {
 
 	@Override
 	public boolean contains(Object e) {
-		for (int i = 0; i < data.length; i++) {
-			if (e.equals(data[i]))
+		for (E element : data) {
+			if (e.equals(element))
 				return true;
 		}
 		return false;

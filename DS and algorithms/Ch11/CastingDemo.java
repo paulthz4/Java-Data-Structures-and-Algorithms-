@@ -20,7 +20,7 @@ public class CastingDemo {
       System.out.println("The circle diameter is " +
         ((CircleFromSimpleGeometricObject)object).getDiameter());
     }
-    else if (object instanceof 
+    else if (object instanceof
                   RectangleFromSimpleGeometricObject) {
       System.out.println("The rectangle area is " +
         ((RectangleFromSimpleGeometricObject)object).getArea());

@@ -6,7 +6,9 @@ package Ch20;
 * {"George", "Katie", "Kevin", "Michelle", "Ryan"}, and find their union, *
 * difference, and intersection.                                           *
 **************************************************************************/
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.PriorityQueue;
 
 public class Exercise20_10 {
 
@@ -24,7 +26,7 @@ public class Exercise20_10 {
 	}
 
 	public static Collection<String> intersection(PriorityQueue<String> a, PriorityQueue<String> b) {
-		PriorityQueue<String> intersection = new PriorityQueue<String>();
+		PriorityQueue<String> intersection = new PriorityQueue<>();
 		for (String name : a) {
 			if (b.contains(name)) {
 				intersection.offer(name);
@@ -34,7 +36,7 @@ public class Exercise20_10 {
 	}
 
 	public static PriorityQueue<String> difference(PriorityQueue<String> a, PriorityQueue<String> b) {
-		PriorityQueue<String> difference = new PriorityQueue<String>();
+		PriorityQueue<String> difference = new PriorityQueue<>();
 		for (String name : b) {
 			for (String name2 : a)
 				if (!a.contains(name) && !b.contains(name2)) {
@@ -44,11 +46,11 @@ public class Exercise20_10 {
 					}
 				}
 		}
-		return difference;//should include Michael but it doesn't 
+		return difference;//should include Michael but it doesn't
 	}
 
 	public static Collection<String> union(PriorityQueue<String> a, PriorityQueue<String> b) {
-		PriorityQueue<String> union = new PriorityQueue<String>();
+		PriorityQueue<String> union = new PriorityQueue<>();
 		for (String name : a) {
 			if (!union.contains(name)) {
 				union.offer(name);

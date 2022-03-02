@@ -7,7 +7,10 @@ import java.io.File;
 * keyword in the file, but don’t count the keyword if it is in a comment or in a *
 * string literal.                                                                *
 *********************************************************************************/
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 public class Exercise21_10 {
 

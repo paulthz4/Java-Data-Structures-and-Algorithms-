@@ -6,7 +6,7 @@ package Ch21.Exercise21_7;
 public class WordOccurrence implements Comparable<WordOccurrence>{
 	String word;
 	Integer count = 0;
-	
+
 	public WordOccurrence(String word, Integer count) {
 		this.word = word;
 		this.count = count;

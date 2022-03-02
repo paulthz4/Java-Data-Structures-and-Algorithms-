@@ -1,6 +1,6 @@
 package Ch24;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,7 @@ class MyArrayListTest {
 		list.add("First entry");
 		assertEquals(myList.get(0), list.get(0));
 	}
-	
+
 	@Test
 	void testRemove() {
 		for(int i=0; i<40; i++) {
@@ -27,7 +27,7 @@ class MyArrayListTest {
 		list.remove(30);
 		assertEquals(myList.get(30), list.get(30));
 	}
-	
+
 	@Test
 	void testSet() {
 		for(int i=0; i<40; i++) {
@@ -38,7 +38,7 @@ class MyArrayListTest {
 		list.set(10, "index 10");
 		assertEquals(myList.get(10), list.get(10));
 	}
-	
+
 	@Test
 	void testToString() {
 		for(int i=0; i<40; i++) {
@@ -49,6 +49,6 @@ class MyArrayListTest {
 		list.set(10, "index 10");
 		System.out.println(myList.toString()+"\n"+ list.toString());
 		assertEquals(myList.toString(), list.toString());
-		
+
 	}
 }

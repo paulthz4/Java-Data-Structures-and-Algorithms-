@@ -5,7 +5,9 @@ package Ch20;
 * integers in a linked list and test the time to traverse the list using an      *
 * iterator vs. using the get(index) method.                                      *
 *********************************************************************************/
-import java.util.*;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Exercise20_6 {
 
@@ -17,8 +19,8 @@ public class Exercise20_6 {
 		}
 		Iterator<Integer> iterator = list.iterator();
 		long time1 = System.currentTimeMillis();
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
+		for (Integer element : list) {
+			System.out.println(element);
 		}
 		long time2 = System.currentTimeMillis();
 		System.out.println("Start time using get(index) " + time1 + " end time is " + System.currentTimeMillis());

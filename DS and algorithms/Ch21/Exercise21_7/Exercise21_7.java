@@ -10,7 +10,10 @@ package Ch21.Exercise21_7;
 * using the Collections.sort method. What would be wrong if you stored the       *
 * instances of WordOccurrence in a tree set?)                                    *
 *********************************************************************************/
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Exercise21_7 {
 
@@ -24,9 +27,9 @@ public class Exercise21_7 {
 	    Map<String, Integer> map = new TreeMap<>();
 
 	    String[] words = text.split("[\\s+\\p{P}]");
-	    for (int i = 0; i < words.length; i++) {
-	      String key = words[i].toLowerCase();
-	      
+	    for (String word : words) {
+	      String key = word.toLowerCase();
+
 	      if (key.length() > 0) {
 	        if (!map.containsKey(key)) {
 	          map.put(key, 1);

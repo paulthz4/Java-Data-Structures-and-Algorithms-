@@ -4,14 +4,11 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
 public class ControlCircle extends Application {
 	private CirclePane circlepane = new CirclePane();
@@ -30,12 +27,12 @@ public class ControlCircle extends Application {
 		//create and register handler
 		enlargebtn.setOnAction(new EnlargeHandler());
 		shrinkbtn.setOnAction(new ShrinkHandler());
-		
+
 
 		BorderPane borderpane = new BorderPane();
 		borderpane.setCenter(circlepane);
 		borderpane.setBottom(box);
-		borderpane.setAlignment(box, Pos.CENTER);
+		BorderPane.setAlignment(box, Pos.CENTER);
 
 		Scene scene = new Scene(borderpane, 200, 200);
 		arg0.setTitle("Control Circle");

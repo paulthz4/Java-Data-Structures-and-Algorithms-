@@ -10,7 +10,7 @@ public class CircleFromSimpleGeometricObject extends SimpleGeometricObject {
     this.radius = radius;
   }
 
-  public CircleFromSimpleGeometricObject(double radius, 
+  public CircleFromSimpleGeometricObject(double radius,
       String color, boolean filled) {
     this.radius = radius;
     setColor(color);
@@ -31,12 +31,12 @@ public class CircleFromSimpleGeometricObject extends SimpleGeometricObject {
   public double getArea() {
     return radius * radius * Math.PI;
   }
-  
+
   /** Return diameter */
   public double getDiameter() {
     return 2 * radius;
   }
-  
+
   /** Return perimeter */
   public double getPerimeter() {
     return 2 * radius * Math.PI;

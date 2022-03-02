@@ -1,7 +1,10 @@
 package Ch21;
 
 import java.io.File;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 /*********************************************************************************
  * (Count the keywords in Java source code) Revise the program in Listing 21.7.

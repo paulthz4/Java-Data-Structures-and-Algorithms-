@@ -18,7 +18,9 @@ $1,000.
 * two lists, and use the Collection’s containsAll method to check whether the    *
 * two digits in the user input are in the lottery number                         *
 *********************************************************************************/
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Exercise20_8 {
 
@@ -27,8 +29,8 @@ public class Exercise20_8 {
 		Scanner input = new Scanner(System.in);
 
 		// Generate a random three-digit number and extract the numbers
-		Integer lottery = (int) (Math.random() * 1000);
-		int num1 = (int) lottery / 100;
+		int lottery = (int) (Math.random() * 1000);
+		int num1 = lottery / 100;
 		int num2 = (lottery % 100) / 10;
 		int num3 = lottery % 10;
 		List<Integer> list = new ArrayList<>();
@@ -49,8 +51,8 @@ public class Exercise20_8 {
 		list2.sort(null);
 		if (num1 == first && num2 == second && third == num3)
 			System.out.println("all numbers match your reward is $10 000");
-		else if ( (list.contains(first) && list.contains(second))  || 
-				(list.contains(first) && list.contains(third)) || 
+		else if ( (list.contains(first) && list.contains(second))  ||
+				(list.contains(first) && list.contains(third)) ||
 				(list.contains(third) && list.contains(second)))
 			System.out.println("Your reward is $3000");
 		else if(list.containsAll(list2))

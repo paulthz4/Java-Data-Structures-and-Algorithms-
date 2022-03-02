@@ -1,5 +1,8 @@
 package Ch21;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 /**********************************************************************************
 * (Count the occurrences of numbers entered) Write a program that reads an        *
 * unspecified number of integers and finds the one that has the most occurrences. *
@@ -9,7 +12,6 @@ package Ch21;
 * 3 appear twice in the list 9 30 3 9 3 2 4, both occurrences should be reported. *
 **********************************************************************************/
 import java.util.Scanner;
-import java.util.*;
 
 public class Exercise21_6 {
 

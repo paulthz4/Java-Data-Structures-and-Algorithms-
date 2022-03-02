@@ -2,7 +2,8 @@ package Ch21;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.Scanner;
+import java.util.TreeSet;
 
 /*********************************************************************************
  * (Display nonduplicate words in ascending order) Write a program that reads *
