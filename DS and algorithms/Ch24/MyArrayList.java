@@ -150,9 +150,4 @@ public class MyArrayList<E> implements MyList<E> {
 		return result.toString() + "]";
 	}
 
-	public static void main(String args[]) {
-		MyArrayList<String> a = new MyArrayList<>();
-		a.add("ehool");
-		System.out.println(a.get(0));
-	}
 }
