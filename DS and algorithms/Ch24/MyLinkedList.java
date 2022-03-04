@@ -59,6 +59,45 @@ public class MyLinkedList<E> implements MyList<E> {
 		size++;
 	}
 
+	public E removeFirst() {
+		if(size == 0) return null;
+		else {
+			Node<E> temp = head;
+			head = head.next;
+			size--;
+			if(head == null) return null; // if list becomes empty
+			return temp.element;
+		}
+	}
+	
+	public E removeLast() {
+		if(size ==0) return null;
+		else if(size == 1) {
+			Node<E> temp = head;
+			head = tail = null;
+			size--;
+			return head.element;
+		}
+		else {
+			Node<E> current = head;
+			for(int i=1; i<size-1;i++) {
+				current = current.next;
+			}
+			Node<E> temp = tail;
+			tail = current;
+			tail.next = null;
+			size--;
+			return temp.element;
+			
+		}
+	}
+	
+	@Override
+	public E remove(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	@Override
 	public boolean contains(Object o) {
 		// TODO Auto-generated method stub
@@ -112,11 +151,7 @@ public class MyLinkedList<E> implements MyList<E> {
 		return 0;
 	}
 
-	@Override
-	public E remove(int index) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public Object set(int index, Object e) {
