@@ -1,4 +1,4 @@
-package Ch21.Exercise21_7;
+package ch21_Exercise21_7;
 
 /*WordOccurrence that implements the Comparable      *
 * interface. The class contains two fields, word and count. The compareTo method *

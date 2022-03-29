@@ -1,4 +1,4 @@
-package Ch21.Exercise21_7;
+package ch21_Exercise21_7;
 /*********************************************************************************
 * (Revise Listing 21.9, CountOccurrenceOfWords.java) Rewrite Listing 21.9 to     *
 * display the words in ascending order of occurrence counts.                     *
