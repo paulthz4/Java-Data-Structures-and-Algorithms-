@@ -9,6 +9,7 @@ public class delete {
 		System.out.println("abcd reversed using recursion is " + reverseStringRecursion("abcd"));
 		System.out.println("abc " + reverseStringRecursion(""));
 		System.out.println("number of v owels in hello there: " + countVowels("hello there"));
+		System.out.println(checkConsecutiveCharacters("hi there", "hi there billy"));
 	}
 
 	public static String reverseString(String s) {
@@ -51,8 +52,9 @@ public class delete {
 		}
 		return count;
 	}
-
-	public static boolean helper(String newPass, String oldPass) {
+	
+	// return true if newPass doesn't contain 4 consecutive characters in oldPass
+	public static boolean checkConsecutiveCharacters(String newPass, String oldPass) {
 		if (newPass.length() <= 3)
 			return true;
 
@@ -68,6 +70,6 @@ public class delete {
 			}
 
 		}
-		return helper(newPass.substring(1), oldPass);
+		return checkConsecutiveCharacters(newPass.substring(1), oldPass);
 	}
 }
