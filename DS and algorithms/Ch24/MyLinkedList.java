@@ -60,27 +60,29 @@ public class MyLinkedList<E> implements MyList<E> {
 	}
 
 	public E removeFirst() {
-		if(size == 0) return null;
+		if (size == 0)
+			return null;
 		else {
 			Node<E> temp = head;
 			head = head.next;
 			size--;
-			if(head == null) return null; // if list becomes empty
+			if (head == null)
+				return null; // if list becomes empty
 			return temp.element;
 		}
 	}
-	
+
 	public E removeLast() {
-		if(size ==0) return null;
-		else if(size == 1) {
+		if (size == 0)
+			return null;
+		else if (size == 1) {
 			Node<E> temp = head;
 			head = tail = null;
 			size--;
 			return head.element;
-		}
-		else {
+		} else {
 			Node<E> current = head;
-			for(int i=1; i<size-1;i++) {
+			for (int i = 1; i < size - 1; i++) {
 				current = current.next;
 			}
 			Node<E> temp = tail;
@@ -88,16 +90,32 @@ public class MyLinkedList<E> implements MyList<E> {
 			tail.next = null;
 			size--;
 			return temp.element;
-			
+
 		}
 	}
-	
+
 	@Override
 	public E remove(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		if (index < 0 || index >= size) {
+			return null;
+		} else if (index == 0) {
+			return removeFirst();
+		} else if (index == size - 1) {
+			return removeLast();
+		} else {
+			Node<E> previous = head;
+
+			for (int i = 1; i < index; i++) {
+				previous = previous.next;
+			}
+
+			Node<E> current = previous.next;
+			previous.next = current.next;
+			size--;
+			return current.element;
+		}
 	}
-	
+
 	@Override
 	public boolean contains(Object o) {
 		// TODO Auto-generated method stub
@@ -105,16 +123,46 @@ public class MyLinkedList<E> implements MyList<E> {
 	}
 
 	@Override
-	public Iterator iterator() {
-		// TODO Auto-generated method stub
-		return null;
+	public java.util.Iterator<E> iterator() {
+		return new LinkedListIterator();
+	}
+
+	private class LinkedListIterator implements java.util.Iterator<E> {
+		private Node<E> current = head; // Current index
+
+		@Override
+		public boolean hasNext() {
+			return (current != null);
+		}
+
+		@Override
+		public E next() {
+			E e = current.element;
+			current = current.next;
+			return e;
+		}
+
+		@Override
+		public void remove() {
+			// Left as an exercise
+		}
+	}
+
+	private static class Node<E> {
+		E element;
+		Node<E> next;
+
+		public Node(E element) {
+			this.element = element;
+		}
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-
+		size = 0;
+		head = tail = null;
 	}
+
 	@Override
 	public void add(int index, E e) {
 		if (index == 0) {
@@ -135,8 +183,7 @@ public class MyLinkedList<E> implements MyList<E> {
 
 	@Override
 	public E get(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return head.element;
 	}
 
 	@Override
@@ -150,8 +197,6 @@ public class MyLinkedList<E> implements MyList<E> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	
 
 	@Override
 	public Object set(int index, Object e) {

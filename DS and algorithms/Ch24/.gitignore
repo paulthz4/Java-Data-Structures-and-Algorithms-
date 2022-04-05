@@ -4,3 +4,11 @@
 /MyArrayListTest.class
 /Node.class
 /MyLinkedList.class
+/MyLinkedList$LinkedListIterator.class
+/MyLinkedList$Node.class
+/MyQueue.class
+/MyStack.class
+/TestStackQueue.class
+/MyPriorityQueue.class
+/TestPriorityQueue.class
+/TestPriorityQueue$Patient.class
