@@ -4,8 +4,8 @@ public class IsAnagram {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(isAnagram("abc", "bca"));
-		System.out.println(isAnagramRec("abc", "abc", 0));
+		System.out.println(isAnagram("anagram", "nagaram"));
+//		System.out.println(isAnagramRec("abc", "abc", 0));
 		String a = "abcde";
 		System.out.println(a.substring(4, 4));
 	}
@@ -31,7 +31,7 @@ public class IsAnagram {
 
 	public static boolean isAnagramRec(String a, String b, int i) {
 		// not finished
-		isAnagramRec(a, b.substring(0, i) + b.substring(i + 1, b.length()), i++);
+		//isAnagramRec(a, b.substring(0, i) + b.substring(i + 1, b.length()), i++);
 
 		return b.isEmpty();
 	}

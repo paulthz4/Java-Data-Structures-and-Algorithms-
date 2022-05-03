@@ -20,7 +20,7 @@ public class SingleNumber {
 		System.out.println(singleNumber(ar));
 		System.out.println(singleNumber(arr2));
 		System.out.println(singleNumber(arr3));
-
+		System.out.println(isAnagram("aacc", "ccac"));
 	}
 	public static int singleNumber(int[] nums) {
 		if(nums.length == 1)
@@ -39,5 +39,18 @@ public class SingleNumber {
 				return entry.getKey();
 		}
 		return 0;
+	}
+	
+	public static boolean isAnagram(String s, String t) {
+		if(s.length() != t.length())
+			return false;
+		String word = s;
+		for(Character c: t.toCharArray()) {
+			int i = s.indexOf(c);
+			if(i == -1)
+				return false;
+			s = s.substring(0,i) + s.substring(i+1, s.length());
+		}
+		return s.isEmpty();
 	}
 }
