@@ -9,7 +9,9 @@ public class DetectCapital {
 //		Given a string word, return true if the usage of capitals in it is right.
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(detectCapitalUse("mRZ"));
+		String a = "FlaG";
+		System.out.println(a.substring(1).equals(a.substring(1).toLowerCase()));
+		System.out.println(detectCapital("FlaG"));
 	}
 
 	public static boolean detectCapitalUse(String word) {
@@ -35,5 +37,24 @@ public class DetectCapital {
 				second = first;
 		}
 		return (first == second);
+	}
+	
+	public static boolean detectCapital(String word) {
+		if(word.length() <= 1) return true;
+		if(word.equals(word.toUpperCase())) {
+			return true;
+		}
+		else if(word.substring(1).equals(word.substring(1).toLowerCase())) {
+			System.out.println(word);
+			return true;
+		}
+		else return false;
+	}
+	
+	public static boolean detectCapitalCount(String word) {
+		int capitals = 0;
+		for(int i=0; i<word.length(); i++) {
+		}
+		return false;
 	}
 }
